@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DoodWebTV-style Replica • Demo</title>
+
+  <!-- icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.245.0/dist/lucide.min.js"></script>
+  <!-- hls -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.0/dist/hls.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+  <div id="app" class="app">
+    <!-- Top header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">D<span>W</span></div>
+        <nav class="top-cats" id="topCats">
+          <!-- categories injected -->
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="search-wrap">
+          <input id="searchInput" placeholder="Cari judul, channel, topik..." />
+          <button id="searchBtn" title="Search"><i data-lucide="search"></i></button>
+        </div>
+        <div class="user-actions">
+          <button id="btnFavorites" title="Favorit"><i data-lucide="star"></i></button>
+          <button id="btnMenu" title="Menu"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero + main -->
+    <main class="main">
+      <section class="hero-area">
+        <div id="heroSlider" class="hero-slider">
+          <!-- slides injected -->
+        </div>
+        <div class="hero-controls">
+          <button id="prevHero" class="hero-btn">‹</button>
+          <button id="nextHero" class="hero-btn">›</button>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="left-col">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Rekomendasi</h3>
+              <div id="resultCount" class="muted">Memuat...</div>
+            </div>
+
+            <div id="grid" class="video-grid">
+              <!-- cards injected -->
+            </div>
+
+            <div class="pager">
+              <button id="loadMoreBtn" class="btn">Muat lebih banyak</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="right-col">
+          <div class="panel">
+            <h4>Channel Populer</h4>
+            <ul id="popularChannels" class="channels">
+              <!-- sample channels -->
+              <li>Channel A <span class="muted">1.2M</span></li>
+              <li>Channel B <span class="muted">420k</span></li>
+              <li>Channel C <span class="muted">90k</span></li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h4>Kategori Cepat</h4>
+            <div class="chips" id="sideCats">
+              <!-- chips -->
+            </div>
+          </div>
+
+          <div class="panel small muted">
+            <strong>Catatan:</strong><br/>
+            Demo layout. API key ada di `script.js`. Jika CORS error, gunakan proxy server.
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <!-- Player modal -->
+    <div id="playerPanel" class="player-panel hidden" aria-hidden="true">
+      <div class="player-box">
+        <button id="closePlayer" class="player-close"><i data-lucide="x"></i></button>
+        <div class="player-wrap">
+          <div class="player-video" id="playerContainer">
+            <video id="videoEl" controls></video>
+          </div>
+          <div class="player-info">
+            <h2 id="playerTitle">Judul</h2>
+            <div id="playerMeta" class="muted small"></div>
+            <div id="playerDesc" class="desc muted small"></div>
+            <div class="player-actions">
+              <button id="favBtn" class="btn">❤ Favorit</button>
+              <a id="downloadBtn" class="btn ghost" target="_blank" rel="noopener">⬇ Download</a>
+              <a id="openShareBtn" class="btn ghost" target="_blank" rel="noopener">Open</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="backdrop" id="backdrop"></div>
+    </div>
+
+    <footer class="footer muted">© <span id="year"></span> DoodWebTV-style • Demo</footer>
+  </div>
+
+  <script>document.addEventListener('DOMContentLoaded',()=>{ if(window.lucide) lucide.createIcons(); });</script>
+  <script src="script.js"></script>
+</body>
+            </html>
